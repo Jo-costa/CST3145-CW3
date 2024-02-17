@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <script src="https://unpkg.com/vue@2.7.8/dist/vue.js"></script>
+    <script src="https://kit.fontawesome.com/b41a748a30.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="manifest" href="store.webmanifest">
+    <script src="lessons.js"></script>
+    <link rel="icon" href="./img/logo.png" type="image/x-icon">
+    <title>After School Club</title>
+</head>
+
+<body>
+
+    
+
+    <div id="app">
+        <nav>
+            <h1 v-text="sitename"></h1>
+
+            <button class="checkout" v-if="cartItemCount > 0" @click="showCheckOut">
+                <span class="qty">{{cartItemCount}}</span>
+                <i class="fa-solid fa-cart-shopping"></i>
+                Checkout
+            </button>
+
+
+            <button class="checkout-disabled" disabled="disabled" v-else>
+                <i class="fa-solid fa-cart-shopping"></i>
+                Checkout
+            </button>
+
+
+
+        </nav>
+        <main>
+            <div class="container" v-if="showProduct">
+
+                <div class="search-main-container">
+                    <div class="search-container">
+                        <div class="search">
+                            <input type="text" class="search-field" placeholder="Search" v-model="search" >
+                        </div>
+                        <button type="submit" class="searchBtn"><i class="fa-solid fa-magnifying-glass" ></i></button>
+
+
+                    </div>
+                    <ul>
+                        <li v-for= "item in searchResults" :key="item.id">
+                            {{item.subject}}
+
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="subcontainer">
+                    <div v-for="product in products" class="row product">
+
+                        <div class="products-container">
+                            <div class="col col-expand">
+
+                                <p><strong>Subject: </strong>{{product.subject}}</p>
+                                <p><strong>Location: </strong> {{product.location}}</p>
+                                <p><strong>Price: </strong>{{product.price | formatPrice}}</p>
+                                <p><strong>Spaces available: </strong>{{product.spaces}}</p>
+                            </div>
+                            <div class="col">
+                                <figure>
+                                    <img v-bind:src="product.img" v-bind:alt="product.imgAlt">
+                                </figure>
+
+                            </div>
+                        </div>
+
+
+                        <div class="add-btn-container" v-if="canAddToCart(product)">
+                            <button class="add-btn" v-on:click="addToCart(product)">
+                                Add to Cart
+                            </button> <span v-if="product.spaces < 5">Only {{product.spaces}} left</span>
+                            <span v-else-if="product.spaces >= 5">Buy Now!</span>
+
+                        </div>
+
+                        <div v-else>
+                            <button class="disabled" disabled='disabled'>
+                                Add to Cart
+                            </button> <span v-if="product.spaces <= 0">Out of Stock</span>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="checkout-page" v-else>
+
+                <div class="return-container">
+                    <button class="go-back" @click="showProductPage"><i class="fa-solid fa-arrow-left"></i></button>
+                </div>
+
+                <div class="user-info-baskt-info-container">
+                    <div class="details-container">
+
+                        <div class="user-details">
+                            <h2>Enter your details</h2>
+
+
+                            <form class="options" name="user-data">
+                                <div class="first-name-container">
+                                    <label for="first-name">Name</label>
+                                    <input type="text" v-model="order.firstName" id="first-name" name="first_name"
+                                        placeholder="First name">
+                                </div>
+
+
+                                <div class="address-container">
+                                    <label for="phone">Phone Number</label>
+                                    <input type="tel" v-model="order.phone" class="phone" name="phone" id="phone"
+                                        placeholder="Phone Number">
+                                </div>
+
+
+
+                                <div class="place-order">
+                                    <button type="submit" @click.prevent="placeOrder" class="place-order-btn"
+                                        v-if="isValid">
+                                        Place order</button>
+
+                                    <button class="place-order-btn-disabled" v-else disabled="disabled">Place
+                                        order</button>
+                                </div>
+
+                            </form>
+
+                        </div>
+                        <div class="customer-info">
+                            <h5>Name: {{order.firstName}}</h5>
+                            <h5>Phone: {{order.phone}}</h5>
+
+                        </div>
+
+
+
+                    </div>
+
+                    <div class="details-confirmation">
+                        <div v-if="cartItemCount > 0">
+                            <div class="basket">
+                                <div class="basket-title">
+                                    <h2>Basket</h2>
+                                </div>
+                                <div class="item" v-for="product in cart">
+
+                                    <div class="product-info">
+                                        <img v-bind:src="getProdImg(product)" alt="" srcset="" width="40px"
+                                            height="40px">
+                                        <p class="item-name">{{product.subject}}</p>
+                                    </div>
+                                    <form action="" name="item-id">
+                                        <!-- <input type="hidden" :value="product.id" >
+                                    <input type="hidden" :value="product.qty"> -->
+                                        <!-- <input type="hidden" v-model="basketForm[0].itemsInfo.numSpaces" :value="product.qty"> -->
+
+
+                                    </form>
+                                    <div class="qty-management">
+                                        <button class="item-decrease" @click="decrease(product)"><i
+                                                class="fa-solid fa-minus"></i></button>
+                                        <p class="item-qty">Qty <span>{{product.qty}}</span></p>
+                                        <button class="item-add" @click="increase(product)"><i
+                                                class="fa-solid fa-plus"></i></button>
+                                        <button class="item-remove" @click="removeAlItems(product)"><i
+                                                class="fa-solid fa-trash"></i></button>
+                                    </div>
+                                </div>
+
+                                <button class="removeAllbtn" @click="removeAllItemsFromCart(cart)">Remove all</button>
+                            </div>
+                        </div>
+
+
+                        <div class="details-confirmation" v-else>
+                            <div class="basket">
+                                <div class="basket-title">
+                                    <h2>Basket</h2>
+                                </div>
+                                <div class="item item-empty">
+                                    <span>Cart is empty</span>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </main>
+    </div>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>

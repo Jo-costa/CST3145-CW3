@@ -1,0 +1,40 @@
+{
+    "name": "After School Club",
+    "short_name": "AS Club",
+    "description": "After school club online store",
+    "icons": [
+        {
+
+
+        "src": "img/icon.png",
+        "sizes": "32x32",
+        "type": "image/png"
+    },
+        {
+
+
+        "src": "img/icon-144.png",
+        "sizes": "512x512",
+        "type": "image/png"
+    }
+],
+
+    "start_url": "index.html",
+    "display": "fullscreen",
+    "background_color": "#fff",
+    "screenshots": [
+        {
+         "src": "img/screenshot.png",
+          "sizes": "512x512",
+          "type": "image/png",
+          "form_factor": "wide",
+          "label": "AS Club"
+        },
+        {
+            "src": "img/screenshot.png",
+             "sizes": "512x512",
+             "type": "image/png",
+             "label": "AS Club"
+           }
+    ]
+}

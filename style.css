@@ -1,0 +1,521 @@
+@import url('https://fonts.googleapis.com/css2?family=AR+One+Sans&family=Open+Sans:wght@400;600&display=swap');
+
+body{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'AR One Sans', sans-serif;
+    display: flex;
+    flex-direction: row;
+    font-size: 1em;
+    background-color: rgb(255, 255, 255);
+    overflow: scroll;
+}
+
+#app {
+    margin: auto;
+    width: 100%;
+    }
+
+nav {
+    background-color: rgba(180, 188, 225, 0.605);
+    padding: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: solid 1px;
+}
+
+nav h1 {
+    margin: 0;
+    padding: 10px 0 10px 0;
+}
+
+.checkout-container {
+    width: 100%;
+    height: 50px;
+    background-color: red;
+}
+
+.checkout-container1 {
+    width: 100%;
+    height: 50px;
+    background-color: red;
+}
+
+main{
+    margin: auto;
+    width: 100%;
+    margin: 50px auto 50px auto;
+    height: 100%;
+}
+
+
+
+
+.container {
+    margin: auto;
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: space-between; */
+    column-gap: 10px;
+    row-gap: 10px;
+    justify-content: center;
+}
+
+.subcontainer{
+    width: 100%;
+    display: grid;
+    margin-left:auto;
+    grid-template-columns: repeat(auto-fill, minmax(400px, 4fr));
+    row-gap: 10px;
+}
+
+
+.search-main-container{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-bottom: 50px;
+    height: 40px;
+}
+
+.search-container{
+    width: 50%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    column-gap: 2px;
+    border: 1px solid rgb(78, 76, 76);
+    border-radius: 5px;
+    background-color: rgb(80, 103, 204);
+    margin: none;
+
+    
+}
+
+.search {
+    width: 90%;
+    display: flex;
+    flex-direction: row;
+    color: rgb(170, 130, 130);
+}
+
+.searchBtn{
+    width: 8%;
+    background-color: rgb(49, 54, 122);
+    border: none;
+    cursor: pointer;
+    height: 28px;
+    
+}
+
+
+.search-field {
+    width: 100%;    
+    border: none;
+    outline: none;
+    background-color: rgb(125, 136, 193);
+    color: white;
+    padding: 7px 0px 7px 0px;
+
+}
+
+input::placeholder {
+    color: #f8f8f8;
+}
+
+.fa-magnifying-glass {
+    color: #fff;
+}
+
+
+.products-container{
+    width: 100%;
+    display: grid;
+    grid-template-columns: auto 3fr;
+
+}
+
+
+.row {
+    border-radius: 10px;
+    border: solid 2px rgba(0, 0, 0, 0.626);
+    width: 90%;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+.col {
+    display: flex;
+    justify-content: end;
+    flex-direction: row;
+}
+
+.col img {
+    width: 150px;
+}
+.col-expand{
+    display: flex;
+    flex-direction: column;
+}
+
+.add-btn-container{
+    margin-top: 10px;
+}
+
+.add-btn{
+    background-color: rgb(86, 104, 184);
+    color: white;
+    padding: 10px;
+    border: none;
+    font-size: 1.2em;
+    border-radius: 20px;
+    cursor: pointer;
+    max-width: 150px;
+}
+
+button.checkout{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    border-radius: 5px;
+    padding:5px;
+    width: 170px;
+    background-color: rgb(86, 104, 184);
+    color: white;
+    font-size: 1.2em;
+    cursor: pointer;
+}
+
+.checkout-disabled{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    border-radius: 5px;
+    padding:5px;
+    width: 170px;
+    background-color: rgb(86, 104, 184);
+    color: white;
+    font-size: 1.2em;
+    opacity: 50%;
+}
+
+
+.place-order-btn-disabled {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    border-radius: 5px;
+    padding:5px;
+    width: 170px;
+    background-color: rgb(86, 104, 184);
+    color: white;
+    font-size: 1.2em;
+    opacity: 50%;
+}
+
+.qty{
+    padding: none;
+    margin: none;
+    font-size: 1em;
+}
+.fa-cart-shopping{
+    padding: 5px;
+    margin-right: 5px;
+}
+.add-btn:hover, .checkout:hover{
+    background-color: rgba(86, 104, 184, 0.929);
+    
+}
+
+.disabled{
+    background-color: rgb(86, 104, 184);
+    color: white;
+    padding: 10px;
+    border: none;
+    font-size: 1.2em;
+    border-radius: 20px;
+    opacity:50%;
+    cursor: default;
+}
+
+.checkout-page {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 0;
+}
+
+.return-container {
+
+    width: 90%;
+    padding: 20px;
+}
+
+.go-back{
+
+    background-color: rgb(49, 54, 122);
+    color: #fff;
+    padding: 5px;
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    font-size: 15px;
+    cursor: pointer;
+    display: flex;
+    justify-content: left;
+}
+
+.user-info-baskt-info-container {
+    width: 90%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.details-container {
+    width: 60%;
+    max-height: 350px;
+    background-color: rgb(225, 225, 225);
+    padding-bottom: 100px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-top: none;
+    padding: 20px;
+}
+
+.user-details {
+    margin-top: 10px;
+    width: 40%;
+    background-color: rgb(225, 225, 225);
+
+}
+
+
+.details-container input {
+    height: 25px;
+    border-radius: 5px;
+    border: none;
+    outline-color:rgb(86, 104, 184) ;
+
+}
+
+
+
+.details-container label {
+    margin-left: 2px;
+}
+
+
+.first-name-container {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+    max-width: 300px;
+    word-wrap: break-word;
+
+}
+.last-name-container {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 5px;
+    max-width: 300px;
+
+}
+
+.address-container {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 5px;
+    width: 300px;
+
+}
+
+.postcode-container{
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    margin-bottom: 5px;
+    width: 500px;
+}
+
+.postcode {
+    width: 250px;
+}
+
+
+
+.city {
+    width: 250px;
+}
+
+
+
+.selectCountry-container  {
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+}
+
+.country {
+    font-size: 14px;
+    padding: 5px;
+    border-radius: 5px;
+    outline-color:rgb(86, 104, 184) ;
+    width: 250px;
+}
+
+.class {
+    width: 10px;
+    margin: none;
+}
+
+.options {
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+}
+
+.gift-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    font-size: 12px;
+}
+
+.addres-type {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    font-size: 12px;
+}
+
+.place-order {
+
+    margin-top: 10px;
+    max-width: 100%;
+    display: flex;
+    justify-content: left;
+}
+
+.place-order-btn  {
+    background-color: rgb(106, 97, 164);
+    padding: 6px;
+    border: none;
+    color: #fff;
+    border-radius: 5px;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+
+.details-confirmation {
+    min-width: 30%;
+}
+.basket{
+    background-color: rgb(225, 225, 225);
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.basket-title {
+    border-bottom: 1px solid rgb(78, 76, 76);
+    padding: 5px;
+
+}
+
+.basket h2 {
+    margin: 1px 0 0 0;
+}
+
+.item {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    /* justify-content: center; */
+    padding: 5px;
+    
+}
+
+.item-empty{
+    padding-bottom: 20px;
+}
+
+.item-name {
+    margin-left: 20px;
+    font-size: 14px;
+}
+
+.product-info{
+    width: 45%;
+    display: flex;
+    align-items: center;
+}
+
+
+.qty-management{
+    width: 50%;
+    display: flex;
+    font-size: 14px;
+}
+
+.item-qty {
+    margin-left: 10px;
+}
+.item-add {
+    margin-left: 10px;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.item-decrease {
+    margin-left: 10px;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+}
+.item-remove {
+    margin-left: 10px;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    
+
+}
+
+
+.removeAllbtn{
+    background-color: rgb(95, 112, 188);
+    border-radius: 10px;
+    color: #fff;
+    cursor: pointer;
+    border: none;
+    margin: 5px;
+    padding: 5px;
+}
+
+.customer-info {
+    background-color: rgb(254, 254, 254);
+    padding: 10px;
+    border-radius: 10px;
+    margin-top: 100px;
+    
+    width: 40%;
+    max-height: 150px;
+}
