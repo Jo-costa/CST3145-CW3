@@ -1,12 +1,11 @@
-let products = [
-    {
+let products = [{
         id: 1,
         subject: "Math",
         location: "London",
         price: 66,
         img: "img/math.png",
         imgAlt: 'Math icon',
-        spaces: 5,
+        spaces: 10,
     },
     {
         id: 2,
@@ -92,7 +91,7 @@ let products = [
         imgAlt: 'Gymnastics icon',
         spaces: 5
     }
-    
+
 
 
 ]
