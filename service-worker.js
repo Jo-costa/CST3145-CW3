@@ -12,6 +12,7 @@ let cacheFiles = [
     "img/cooking.png",
     "img/football.png",
     "img/gymnastics.png",
+    "img/screenshot.png"
 
 ]
 
